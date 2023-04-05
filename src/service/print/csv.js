@@ -7,7 +7,10 @@ const buildCSVWithCallback = async (id, callback) => {
   let error = false;
   let errorMsg = "";
   let totalMarks = 0;
-  getQuestionSet(id)
+  const config = {
+   id: id    
+  }
+  getQuestionSet(config)
     .then(async (data) => {
       if (data.error) {
         callback(null, data.error, data.errorMsg, null);
@@ -392,7 +395,6 @@ async function renderMCQ(
   questionOptions.forEach(( quesOpt , i)=>{
     data[`Option${i+1}`] =   quesOpt[0]
   })
-
   return data;
 }
 

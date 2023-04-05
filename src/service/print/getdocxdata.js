@@ -26,8 +26,7 @@ const basicDetails={
 }
 
 function create(data, paperData) {
-  const language = paperData?.language?.toLowerCase();
-  let basicPaperDetials = basicDetails.english;
+  const language = (paperData && paperData.language) ? paperData.language.toLowerCase(): defaultLanguage;
 
   const doc = new Document({
     sections: [
@@ -235,9 +234,9 @@ function create(data, paperData) {
                     count++;
                   });
                   arr.push(
-                    new Paragraph({
-                      children: [], // Just newline without text
-                    })
+                    // new Paragraph({
+                    //   children: [], // Just newline without text
+                    // })
                   );
                   arr.push(optionsTabel(testimage));
                   arr.push(
@@ -720,8 +719,8 @@ function displayNumber(data) {
           type: WidthType.DXA,
         },
         margins: {
-          top: convertInchesToTwip(0.0693701),
-          bottom: convertInchesToTwip(0.0693701),
+          top: convertInchesToTwip(0.0093701),
+          bottom: convertInchesToTwip(0.0093701),
           left: convertInchesToTwip(0.3493701),
           right: convertInchesToTwip(0.0693701),
         },
